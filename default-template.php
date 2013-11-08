@@ -20,6 +20,8 @@
 						if( is_attachment() && wp_attachment_is_image() )
 							echo '<p>' . wp_get_attachment_image( $post->ID, 'large' ) . '</p>';
 
+						add_filter( 'the_content', 'remove_images', 100 );
+						add_filter( 'the_content', 'remove_image_captions', 101 );
 						the_content();
 					?>
 

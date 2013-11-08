@@ -527,6 +527,17 @@ class wp_print_friendly {
 		return $content;
 	}
 
+
+public function remove_images( $content ) {
+   $postOutput = preg_replace('/<img[^>]+./','', $content);
+   return $postOutput;
+}
+
+public function remove_image_captions( $content ) {
+   $postOutput = preg_replace('/<div([^>]+?) class=.wp-caption(.*?)<\/div>/ims', '' ,$content);
+   return $postOutput;
+}
+
 	/**
 	 * Generate URL for post's printer-friendly format.
 	 *
